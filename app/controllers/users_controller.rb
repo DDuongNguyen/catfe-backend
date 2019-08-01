@@ -17,15 +17,15 @@ class UsersController < ApplicationController
       token = JWT.encode(payload, 'meow', "HS256")
       render json: {token:token}
     else
-      render json: {errors: user.errors.full_messages}, status:"u cant even make a user?"
+      render json: {errors: user.errors.full_messages}, status:"try again 🐈"
     end
   end
 
   def profile
     render json: current_user
-  end 
+  end
 
-
+  
   private
   def user_params
     params.permit(:name, :username, :password)
